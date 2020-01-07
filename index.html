@@ -5,23 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HW3</title>
-    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    
-    <div class="container"> 
+    <div class="card"> 
         <h1>Password Generator</h1>
 
-    <div>
-        <div class="container">
-        <div class="row">
-           <div class="col-md-12">
+        <div class="card-body">
             <h2> Generate a Password </h2>
-            </div>
-        </div>
+        
         <hr> 
     
         <div class="row">
@@ -40,11 +33,74 @@
             <div class="col-md-6">
 
             <button type="button" class="btn btn-secondary btn-lg">Copy to Clipboard</button>  
-            </div>      
+            </div>   
+        </div>
+   
         </div> 
     </div>
 
     </div>
-    
+    <script>
+        // Define variables 
+        // create an array of special, numeric, lowercase, and uppercase 
+        var special = ['!','@', '#', '$', '%', '^', '&', '*']; 
+        var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']; 
+        var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
+        var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        var password = "";  
+        var length=prompt ("Pick a password length between 8-128 characters");
+        var parLength=parseInt(length);
+        console.log (parLength)
+        while (parLength< 7 || parLength>127){
+            alert("Please pick a valid number between 8-128 characters")
+            var secondLength=prompt ("Pick a password length between 8-128 characters");
+        var secondParLength=parseInt(secondLength);
+        }
+        var specialInput=confirm ("Do you want special characters?");
+        var numbersInput=confirm ("Do you want numbers?");
+        var lowerInput=confirm ("Do you want lowercase?");
+        var upperInput=confirm ("Do you want uppercase?");
+        var passwordCharSet= [];
+
+        
+        // Create a function to generate a password 
+        function generate() {
+            var combinedCharSet;
+            console.log (passwordCharSet);
+            if (specialInput) {
+                passwordCharSet.push(special); 
+            }
+            if (numbersInput){
+                passwordCharSet.push(numbers); 
+            }
+            if (lowerInput){
+                passwordCharSet.push(lowercase); 
+            }
+            if (upperInput){
+                passwordCharSet.push(uppercase); 
+            }
+            var flattenCharSet = passwordCharSet.flat()
+            for (let i=0; i< parLength; i++){
+                var random = Math.floor(Math.random() * flattenCharSet.length);  
+                password += flattenCharSet[random];
+                console.log (passwordCharSet);
+            }
+            console.log(flattenCharSet)
+            console.log("password", password)
+        }
+        generate();
+
+
+        // Prompt user to choose a length of password between 8-128 
+      //  var length= prompt ("Choose a password length between 8-128 characters");
+
+        // if user does not chooses a number <8 or >128 alert them that they must choose a valid number 
+        // Ask user if they would like to include special characters/ numeric characters/ lowercase characters/ uppercase characters 
+        // if yes, include accepted characters/ if no exclude rejected characters 
+        // generate random password that includes the characters accepted 
+
+
+
+    </script>
 </body>
 </html>
