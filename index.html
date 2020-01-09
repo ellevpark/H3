@@ -11,32 +11,32 @@
 <body>
     <div class="card"> 
         <h1>Password Generator</h1>
-
+​
         <div class="card-body">
             <h2> Generate a Password </h2>
         
         <hr> 
+        
+    </div>   
+    <hr>
     
-        </div>   
-        <hr>
-
-        <div class="row"> 
+    <textarea type="text" value="" readonly id="copyPassword"></textarea>
+​
+    <div class="row"> 
             <div class="col-md-6">
-
-            <button type="button" class="btn btn-primary btn-lg" onclick="password">Generate Password</button>
+​
+            <button type="button" id="generateButton" class="btn btn-primary btn-lg" >Generate Password</button>
      
             </div>
             
             <div class="col-md-6">
-                <button class="btn btn-secondary btn-lg" onclick="myFunction()">Copy to Clipboard</button>
-                <input type="text" value="" id="copyPassword">
-                <button onclick="myFunction()"></button>
+                <button type="button" id= "copyPassword" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
             </div>   
         </div>
    
         </div> 
     </div>
-
+​
     </div>
     <script>
         // Define variables 
@@ -45,29 +45,31 @@
         var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
         var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         var password = "";  
+        var generatePassword=document.getElementById ("generateButton"); 
+        var copyPassword= document.getElementById ("copyPassword");
         // Have user pick password length 
-        var length=prompt ("Pick a password length between 8-128 characters");
-        // Define length to be the input of the length prompt
-        var parLength=parseInt(length);
-        
-        // If the user does not pick a valid number, have an alert to ask the user to try again
-        while (parLength< 7 || parLength>127){
-            alert("Please pick a valid number between 8-128 characters")
-            var secondLength=prompt ("Pick a password length between 8-128 characters");
-        var secondParLength=parseInt(secondLength);
-        }
-        // ask the user if they want to include special characters 
-        var specialInput=confirm ("Do you want special characters?");
-        // ask the user if they want to include numners 
-        var numbersInput=confirm ("Do you want numbers?");
-        // ask the user if they want to include lowercase 
-        var lowerInput=confirm ("Do you want lowercase?");
-        // ask the user if they want to incude uppercase 
-        var upperInput=confirm ("Do you want uppercase?");
-        var passwordCharSet= [];
         
         // Create a function to generate a password 
         function generate() {
+            var length=prompt ("Pick a password length between 8-128 characters");
+            // Define length to be the input of the length prompt
+            var parLength=parseInt(length);
+            
+            // If the user does not pick a valid number, have an alert to ask the user to try again
+            while (parLength< 7 || parLength>127){
+                alert("Please pick a valid number between 8-128 characters")
+                var secondLength=prompt ("Pick a password length between 8-128 characters");
+                parLength=parseInt(secondLength);
+            }
+            // ask the user if they want to include special characters 
+            var specialInput=confirm ("Do you want special characters?");
+            // ask the user if they want to include numners 
+            var numbersInput=confirm ("Do you want numbers?");
+            // ask the user if they want to include lowercase 
+            var lowerInput=confirm ("Do you want lowercase?");
+            // ask the user if they want to incude uppercase 
+            var upperInput=confirm ("Do you want uppercase?");
+            var passwordCharSet= [];
             var combinedCharSet;
             //create if statements to include the confirmed conditions from above
             if (specialInput) {
@@ -89,25 +91,28 @@
                 var random = Math.floor(Math.random() * flattenCharSet.length);  
                 password += flattenCharSet[random];
             }
+
+            var box = document.getElementById("copyPassword");
+            box.value = password;
         }
         
-// Create a var to copy the password
-var copyText = document.getElementById("copyPassword");
-
-// Select the text inside the text box
-copyText.select();
-copyText.setSelectionRange(0, 99999); 
-
-// Copy the text
-document.execCommand("copy");
-
-//Alert the copied text
-alert("Copied the text: " + copyText.value);
-
-        
-
-
-
+        function myFunction(){
+            
+            // Create a var to copy the password
+            var copyText = document.getElementById("copyPassword");
+            
+            // Select the text inside the text box
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            
+            // Copy the text
+            document.execCommand("copy");
+            
+            //Alert the copied text
+            alert("Copied the text: " + copyText.value);
+        }
+        generatePassword.addEventListener("click", generate);
+        copyPassword.addEventListener("click", myFunction);
     </script>
 </body>
 </html>
