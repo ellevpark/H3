@@ -9,35 +9,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card"> 
-        <h1>Password Generator</h1>
-​
-        <div class="card-body">
-            <h2> Generate a Password </h2>
-        
-        <hr> 
-        
-    </div>   
-    <hr>
     
-    <textarea type="text" value="" readonly id="copyPassword"></textarea>
+  <div class= "container">
+    <div class="card"> 
+      <h1>Password Generator</h1>
+​       <div class="card-body">
+        <h2> Generate a Password </h2>
+        <hr> 
+      </div>   
+        <hr>
+    
+        <textarea id="textbox" type="text" value="" readonly id="copyPassword"></textarea>
 ​
-    <div class="row"> 
-            <div class="col-md-6">
-​
-            <button type="button" id="generateButton" class="btn btn-primary btn-lg" >Generate Password</button>
-     
-            </div>
-            
-            <div class="col-md-6">
-                <button type="button" id= "copyPassword" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
-            </div>   
+      <div class="row"> 
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-lg">Generate Password</button>
         </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
+        </div>   
+      </div>
    
-        </div> 
-    </div>
-​
-    </div>
+    </div> 
+​  </div>
+
     <script>
         // Define variables 
         var special = ['!','@', '#', '$', '%', '^', '&', '*']; 
