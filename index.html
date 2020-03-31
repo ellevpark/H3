@@ -23,10 +23,10 @@
 ​
       <div class="row"> 
         <div class="col-md-6">
-          <button type="button" class="btn btn-primary btn-lg">Generate Password</button>
+          <button type="button" id= "generateButton" class="btn btn-primary btn-lg">Generate Password</button>
         </div>
         <div class="col-md-6">
-          <button type="button" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
+          <button type="button" id= "copyPassword" class="btn btn-secondary btn-lg">Copy to Clipboard</button>
         </div>   
       </div>
    
@@ -81,7 +81,7 @@
             }
             //create a set of characters to include the confirmed set 
             var flattenCharSet = passwordCharSet.flat()
-            //create a for loop to select character from the set of characters confurned 
+            //create a for loop to select character from the set of characters confirmed 
             for (let i=0; i< parLength; i++){
                 var random = Math.floor(Math.random() * flattenCharSet.length);  
                 password += flattenCharSet[random];
