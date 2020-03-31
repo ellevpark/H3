@@ -89,12 +89,13 @@
 
             var box = document.getElementById("textbox");
             box.value = password;
+            console.log(password)
         }
         
         function myFunction(){
             
             // Create a var to copy the password
-            var copyText = document.getElementById("copyPassword");
+            var copyText = document.getElementById("textbox");
             
             // Select the text inside the text box
             copyText.select();
