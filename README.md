@@ -16,4 +16,4 @@ Generate a random secure password
 ## Link
 
 Below is the link to the app.
-https://ellevpark.github.io/Simple-Exercise-Tracker/
+https://ellevpark.github.io/Password-Generator/
