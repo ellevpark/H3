@@ -19,7 +19,7 @@
       </div>   
         <hr>
     
-        <textarea id="textbox" type="text" value="" readonly id="copyPassword"></textarea>
+        <textarea id="textbox" type="text" value="" readonly ></textarea>
 ​
       <div class="row"> 
         <div class="col-md-6">
@@ -87,7 +87,7 @@
                 password += flattenCharSet[random];
             }
 
-            var box = document.getElementById("copyPassword");
+            var box = document.getElementById("textbox");
             box.value = password;
         }
         
